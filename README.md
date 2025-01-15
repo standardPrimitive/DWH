@@ -15,10 +15,10 @@
 ## Шаги по запуску
 
 1. **Запустить контейнер с PostgreSQL**  
-  `docker run -d --name postgres_container -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -p 5432:5432 postgres
+  `docker run -d --name postgres_container -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -p 5432:5432 postgres`
 2. **Запустить контейнер с Spark**  
   `docker run -d -p 8888:8888 -p 4040:4040 --name spark-notebook --user root -v D:\tmp\postgresql-42.6.0.jar:/opt/spark/jars/postgresql-42.6.0.jar jupyter/all-spark-notebook`
-  (файл `postgresql-42.6.0.jar` скачивается с помощью Invoke-WebRequest `-Uri https://jdbc.postgresql.org/download/postgresql-42.6.0.jar -OutFile D:\tmp\spark_jars\postgresql-42.6.0.jar`
+  (файл postgresql-42.6.0.jar скачивается с помощью `Invoke-WebRequest -Uri https://jdbc.postgresql.org/download/postgresql-42.6.0.jar -OutFile D:\tmp\spark_jars\postgresql-42.6.0.jar` (windows)
 3. **Настроить связь подключения**
   docker network create spark-postgres-network
   docker network connect spark-postgres-network postgres_container       
