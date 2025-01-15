@@ -32,10 +32,14 @@
    - https://stackoverflow.com/questions/37694987/connecting-to-postgresql-in-a-docker-container-from-outside
 
     `docker run -d -p 8888:8888 -p 4040:4040 --name spark-notebook --user root -v D:\tmp\postgresql-42.6.0.jar:/opt/spark/jars/postgresql-42.6.0.jar jupyter/all-spark-notebook`
+   
     `Invoke-WebRequest -Uri https://jdbc.postgresql.org/download/postgresql-42.6.0.jar -OutFile D:\tmp\spark_jars\postgresql-42.6.0.jar` (windows)
+   
     `docker network create spark-postgres-network`
-    `docker network connect spark-postgres-network postgres_container`      
+   
+    `docker network connect spark-postgres-network postgres_container`
+    
     `docker network connect spark-postgres-network spark-notebook`
    
-9. **Запустить скрипт DWH.ipynb**
+10. **Запустить скрипт DWH.ipynb**
 
